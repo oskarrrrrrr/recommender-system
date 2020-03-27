@@ -4,9 +4,9 @@ import os
 
 MOVIE_LENS_DIR = 'movie_lens'
 ML_DIR = {
-        '100k': 'ml-latest-small',
+        '100k': 'ml-100k',
         '1m': 'ml-1m',
-        '10m': 'ml-10M100K',
+        '10m': 'ml-10m',
         '20m': 'ml-20m',
         }
 ML_SEP = {
@@ -35,7 +35,6 @@ def _get_movie_lens_dict(ml_dir, files, ext, sep):
                 os.path.join(ml_dir, f + ext),
                 sep=sep,
                 engine=engine,
-                header=None,
                 )
             for f in files}
     if len(files) == 1:
@@ -45,5 +44,5 @@ def _get_movie_lens_dict(ml_dir, files, ext, sep):
 def get_movie_lens(ver, only_ratings=True):
     ml_dir = os.path.join(MOVIE_LENS_DIR, ML_DIR[ver])
     files = ['ratings'] if only_ratings else ML_FILES[ver]
-    return _get_movie_lens_dict(ml_dir, files, ML_EXT[ver])
+    return _get_movie_lens_dict(ml_dir, files, ML_EXT[ver], ML_SEP[ver])
 
