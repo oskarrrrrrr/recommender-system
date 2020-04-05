@@ -8,24 +8,28 @@ ML_DIR = {
         '1m': 'ml-1m',
         '10m': 'ml-10m',
         '20m': 'ml-20m',
+        '25m': 'ml-25m',
         }
 ML_SEP = {
         '100k': ',',
         '1m': '::',
         '10m': '::',
         '20m': ',',
+        '25m': ',',
         }
 ML_EXT = {
         '100k': '.csv',
         '1m': '.dat',
         '10m': '.dat',
         '20m': '.csv',
+        '25m': '.csv',
         }
 ML_FILES = {
         '100k': ['ratings', 'movies', 'tags', 'links'],
         '1m': ['ratings', 'movies', 'users'],
         '10m': ['ratings', 'movies', 'tags'],
         '20m': ['ratings', 'movies', 'tags', 'links'],
+        '25m': ['ratings', 'movies', 'tags', 'links', 'genome-scores', 'genome-tags'],
         }
 
 def _get_movie_lens_dict(ml_dir, files, ext, sep):
